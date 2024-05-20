@@ -1,12 +1,21 @@
 body {
     background-color: cornsilk;
+    text-align: center;
 }
 
-section {
+.calculator {
     height: 500px;
+    width: 500px;
     background-color:cornflowerblue;
 }
 
-h1 {
-    text-align: center;
+.calculator input {
+    height: 100px;
+    width: 500px;
+}
+
+.calculatorButtons {
+    height: 500px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
 }

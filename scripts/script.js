@@ -1,52 +1,59 @@
 console.clear();
+
+// Selectors
+
 const input = document.querySelector(".inputClass");
-const plusButton = document.querySelector(".plusClass");
-const sendButton = document.querySelector(".sendClass");
+const buttons = document.querySelectorAll("button");
+
+// Attribution
 
 let inputArray = [];
-
 let number1, number2, operator;
 
-plusButton.addEventListener('click', () => {
-    inputArray.push(+input.value);
-    input.value = "";
-    console.log(inputArray);
+// Event Listeners
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        if (button.innerText == "C") {
+            input.value = "";
+            inputArray = [];
+        } else if (button.innerText == "/" || button.innerText == "*" || button.innerText == "-" || button.innerText == "+") {
+            operator = button.innerText;
+            inputArray.push(+input.value);
+            input.value = "";
+        } else if (button.innerText == "=") {
+            inputArray.push(+input.value);
+            operate(inputArray, 2, operator)
+        } else {
+            input.value += button.innerText;
+        }
+    });
 });
 
+// Functions
 
 const add = ([input1, input2]) => input1 + input2;
 const sub = ([input1, input2]) => input1 - input2;
 const div = ([input1, input2]) => input1 / input2;
 const mul = ([input1, input2]) => input1 * input2;
 
-sendButton.addEventListener('click', () => {
-    let result = add(inputArray);
-    console.log(result);
-})
-
-
 const operate = (number1, number2, operator) => {
     switch (operator) {
         case "+":
-            add(number1, number2)
+            input.value = add(number1, number2);
+            inputArray = [];
             break;
         case "-":
-            sub(number1, number2)
-            break;        
+            input.value = sub(number1, number2);
+            inputArray = [];
+            break;
         case "/":
-            div(number1, number2)
+            input.value = div(number1, number2);
+            inputArray = [];
             break;
         case "*":
-            sub(number1, number2)
+            input.value = mul(number1, number2);
+            inputArray = [];
             break;
     }
-    
 };
-
-
-
-
-
-
-
-

@@ -19,13 +19,13 @@ body {
 }
 
 .calculator input {
+    text-align: right;
     height: 100px;
     width: 100%;
     margin: 4px;
     border-radius: 12px;
     background-color: aliceblue;
     border: 0px;
-    direction: rtl;
     font-size: 2em;
 }
 

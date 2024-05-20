@@ -7,6 +7,7 @@ const buttons = document.querySelectorAll("button");
 
 // Attribution
 
+input.value = 0;
 let inputArray = [];
 let number1, number2, operator;
 

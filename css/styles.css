@@ -33,7 +33,7 @@ body {
     height: auto;
     display: grid;
     grid-template-columns: auto auto auto auto;
-    grid-template-rows: 80px 80px 80px 80px;
+    grid-template-rows: 80px 80px 80px 80px 80px;
 }
 
 .calculatorButtons button {

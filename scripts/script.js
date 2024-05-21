@@ -6,8 +6,6 @@ const input = document.querySelector(".inputClass");
 const buttons = document.querySelectorAll("button");
 
 // Attribution
-
-input.value = 0;
 let inputArray = [];
 let number1, number2, operator;
 
@@ -24,7 +22,7 @@ buttons.forEach((button) => {
             input.value = "";
         } else if (button.innerText == "=") {
             inputArray.push(+input.value);
-            operate(inputArray, 2, operator)
+            operate(inputArray, 0, operator)
         } else {
             input.value += button.innerText;
         }
@@ -58,3 +56,29 @@ const operate = (number1, number2, operator) => {
             break;
     }
 };
+
+// Keyboard Support
+
+document.addEventListener('keydown', (event) => {
+    switch (event.key) {
+        case 'Escape':
+            console.log("ha");
+            break;
+        case '/':
+            console.log("ha");
+            break;
+        case 'Backspace':
+            console.log("ha");
+            break;
+        case '/':
+            console.log("ha");
+            break;
+        case '5':
+            if (event.shiftKey) {
+                console.log("%");
+            } else {
+                console.log("5");
+            }
+            break;
+    }
+});

@@ -46,7 +46,7 @@ body {
     border-radius: 12px;
 }
 
-.calculatorButtons button:hover {
+.calculatorButtons button:active {
     background-color:#04bf9d;
 }
 
@@ -56,9 +56,9 @@ body {
     background-color: rgb(188, 194, 199) !important;
 }
 
-.operator:hover,
-.percent:hover,
-.backspace:hover {
+.operator:active,
+.percent:active,
+.backspace:active {
     background-color: #04bfad !important;
 }
 
@@ -66,6 +66,6 @@ body {
     background-color: #027373 !important;
 }
 
-.sendClass:hover, .clearClass:hover{
+.sendClass:hover, .clearClass:active{
     background-color: #04bfad !important;
 }

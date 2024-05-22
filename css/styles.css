@@ -2,10 +2,11 @@
     box-sizing: border-box;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 1.5rem;
+    color: #172026;
 }
 
 body {
-    background-color: cornsilk;
+    background-color: #5fcdd9;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -16,7 +17,7 @@ body {
     height: auto;
     width: 500px;
     padding: 24px;
-    background-color:cornflowerblue;
+    background-color:#172026;
     border-radius: 12px;
 }
 
@@ -39,24 +40,32 @@ body {
 }
 
 .calculatorButtons button {
-    background-color: aliceblue;
+    background-color: aliceblue; 
     margin: 4px;
     border: 0px;
     border-radius: 12px;
 }
 
 .calculatorButtons button:hover {
-    background-color:beige;
+    background-color:#04bf9d;
 }
 
-.operator {
-    background-color: rgb(168, 168, 168) !important;
+.operator,
+.percent,
+.backspace {
+    background-color: rgb(188, 194, 199) !important;
+}
+
+.operator:hover,
+.percent:hover,
+.backspace:hover {
+    background-color: #04bfad !important;
 }
 
 .sendClass, .clearClass{
-    background-color:coral !important;
+    background-color: #027373 !important;
 }
 
 .sendClass:hover, .clearClass:hover{
-    background-color: rgb(197, 98, 62)!important;
+    background-color: #04bfad !important;
 }

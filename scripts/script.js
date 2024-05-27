@@ -3,75 +3,70 @@ console.clear();
 // Selectors
 
 const input = document.querySelector(".inputClass");
+const dot = document.querySelector(".dotClass");
 const buttons = document.querySelectorAll("button");
 
 // Attribution
 let inputArray = [];
-let number1, number2, operator;
+let backspaceArray = [];
+let number, operator;
+let clicked = false;
+// let temp1, temp2, lastOperation;
 
 // Event Listeners
 
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
-    // if (button.innerText == "C") {
-    //   input.value = "";
-    //   inputArray = [];
-    // } else if (button.innerText == "÷" || button.innerText == "×" || button.innerText == "-" || button.innerText == "+") {
-    //   operator = button.innerText;
-    //   inputArray.push(+input.value);
-    //   input.value = "";
-    // } else if (button.innerText == "=") {
-    //   inputArray.push(+input.value);
-    //   operate(inputArray, 0, operator)
-    // } else {
-    //   input.value += button.innerText;
-    // }
-
-    // switch (button.innerText) {
-    //   case 'C':
-    //     input.value = "";
-    //     inputArray = [];
-    //     break;
-    //   case '÷':
-    //   case '×':
-    //   case '-':
-    //   case '+':
-    //     operator = button.innerText;
-    //     inputArray.push(+input.value);
-    //     input.value = "";
-    //     break;
-    //   case '=':
-    //     inputArray.push(+input.value);
-    //     operate(inputArray, 2, operator)
-    //     break;
-    //   default:
-    //     input.value += button.innerText;
-    // }
-
     switch (button.className) {
+      case 'dotClass':
+        if (!clicked) {
+          input.value += button.innerText;
+          clicked = true;
+        }
+        break;
       case 'clearClass':
         input.value = "";
+        clicked = false;
         inputArray = [];
+        backspaceArray = [];
         break;
       case 'operator':
-        operator = button.innerText;
-        inputArray.push(+input.value);
-        input.value = "";
+        // if (inputArray.length > 0) {
+        //   operate(inputArray, operator);
+        //   lastOperation = inputArray + operator;
+        //   console.log(lastOperation);
+        // } else {
+        //   input.value = "";
+        // }   
+        inputArray.push(+input.value); 
+        operator = button.innerText;  
+        input.value = ""; 
+        clicked = false;
         break;
       case 'sendClass':
+        // if (inputArray.length == 0) {
+        //   // backspaceArray = [];
+        //   input.value = "";
+        // } else {
+        // }
         inputArray.push(+input.value);
-        operate(inputArray, 2, operator)
+        operate(inputArray, operator)
+        inputArray = [];
+        clicked = false;
         break;
       case 'percent':
         input.value /= 100;
         break;
       // case 'backspace':
+      //   backspaceArray.pop();
       //   inputArray.pop();
+      //   input.value = backspaceArray.join("");
       //   break;
       case 'negate':
         input.value *= -1;
         break;
       default:
+        // backspaceArray.push(+button.innerText)
         input.value += button.innerText;
     }
   });
@@ -79,28 +74,19 @@ buttons.forEach((button) => {
 
 // Functions
 
-const add = ([input1, input2]) => input1 + input2;
-const sub = ([input1, input2]) => input1 - input2;
-const div = ([input1, input2]) => input1 / input2;
-const mul = ([input1, input2]) => input1 * input2;
-
-const operate = (number1, number2, operator) => {
+const operate = (number, operator) => {
   switch (operator) {
     case "+":
-      input.value = add(number1, number2);
-      inputArray = [];
+      input.value = number[0] + number[1];
       break;
     case "-":
-      input.value = sub(number1, number2);
-      inputArray = [];
+      input.value = number[0] - number[1];
       break;
     case "÷":
-      input.value = div(number1, number2);
-      inputArray = [];
+      input.value = number[0] / number[1];
       break;
     case "×":
-      input.value = mul(number1, number2);
-      inputArray = [];
+      input.value = number[0] * number[1];
       break;
   }
 };

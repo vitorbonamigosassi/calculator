@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 1.5rem;
     color: #172026;
 }
@@ -13,11 +13,26 @@ body {
     align-items: center;
 }
 
+footer,
+a {
+    margin: 40px;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+svg {
+    margin-bottom: -5px;
+}
+
 .calculator {
     height: auto;
     width: 500px;
     padding: 24px;
-    background-color:#172026;
+    background-color: #172026;
     border-radius: 12px;
 }
 
@@ -39,33 +54,44 @@ body {
     grid-template-rows: 80px 80px 80px 80px 80px;
 }
 
-.calculatorButtons button {
-    background-color: aliceblue; 
+button {
+    background-color: aliceblue;
     margin: 4px;
     border: 0px;
     border-radius: 12px;
 }
 
-.calculatorButtons button:active {
-    background-color:#04bf9d;
+button:hover {
+    background-color: #5dceb9;
+}
+
+button:active {
+    background-color: #04bf9d;
 }
 
 .operator,
 .percent,
 .backspace {
-    background-color: rgb(188, 194, 199) !important;
+    background-color: rgb(164, 170, 175) !important;
+}
+
+.sendClass,
+.clearClass {
+    background-color: #027373 !important;
+}
+
+.operator:hover,
+.percent:hover,
+.backspace:hover,
+.sendClass:hover,
+.clearClass:hover {
+    background-color: #5dceb9 !important;
 }
 
 .operator:active,
 .percent:active,
-.backspace:active {
-    background-color: #04bfad !important;
-}
-
-.sendClass, .clearClass{
-    background-color: #027373 !important;
-}
-
-.sendClass:hover, .clearClass:active{
-    background-color: #04bfad !important;
+.backspace:active,
+.sendClass:active,
+.clearClass:active {
+    background-color: #04bf9d !important;
 }

@@ -28,7 +28,7 @@ buttons.forEach((button) => {
         input.value = "";
         clicked = false;
         inputArray = [];
-        backspaceArray = [];
+        // backspaceArray = [];
         break;
       case 'operator':
         // if (inputArray.length > 0) {
@@ -37,10 +37,10 @@ buttons.forEach((button) => {
         //   console.log(lastOperation);
         // } else {
         //   input.value = "";
-        // }   
-        inputArray.push(+input.value); 
-        operator = button.innerText;  
-        input.value = ""; 
+        // }
+        inputArray.push(+input.value);
+        operator = button.innerText;
+        input.value = "";
         clicked = false;
         break;
       case 'sendClass':
@@ -96,20 +96,20 @@ const operate = (number, operator) => {
 document.addEventListener('keydown', (event) => {
   switch (event.key) {
     case 'Escape':
-      console.log("C");
       input.value = "";
       inputArray = [];
       break;
     case '%':
-      console.log("ha");
-      input.value += event.key;
+      input.value /= 100;
       break;
     case 'Backspace':
       console.log("ha");
       break;
     case '/':
-      console.log("Divide");
-      input.value += event.key;
+      inputArray.push(+input.value);
+      operator = '/';
+      input.value = "";
+      clicked = false;
       break;
     case '7':
       console.log("7");
@@ -124,8 +124,10 @@ document.addEventListener('keydown', (event) => {
       input.value += event.key;
       break;
     case '*':
-      console.log("*");
-      input.value += event.key;
+      inputArray.push(+input.value);
+      operator = '*';
+      input.value = "";
+      clicked = false;
       break;
     case '4':
       console.log("4");
@@ -140,8 +142,10 @@ document.addEventListener('keydown', (event) => {
       input.value += event.key;
       break;
     case '-':
-      console.log("-");
-      input.value += event.key;
+      inputArray.push(+input.value);
+      operator = '-';
+      input.value = "";
+      clicked = false;
       break;
     case '1':
       console.log("1");
@@ -156,8 +160,10 @@ document.addEventListener('keydown', (event) => {
       input.value += event.key;
       break;
     case '+':
-      console.log("+");
-      input.value += event.key;
+      inputArray.push(+input.value);
+      operator = '+';
+      input.value = "";
+      clicked = false;
       break;
     case '0':
       console.log("0");
@@ -170,8 +176,10 @@ document.addEventListener('keydown', (event) => {
       break;
     case '=':
     case 'Enter':
-      console.log("=");
-      input.value += event.key;
+      inputArray.push(+input.value);
+      operate(inputArray, operator)
+      inputArray = [];
+      clicked = false;
       break;
   }
 });
